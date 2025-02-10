@@ -1,0 +1,24 @@
+$schema: 'https://moonrepo.dev/schemas/toolchain.json'
+
+bun:
+  version: '1.2.2'
+  installArgs: ['--frozen-lockfile']
+
+# node:
+#   version: '20.18.1'
+#   packageManager: bun
+#   bun:
+#     version: '1.2.2'
+#     installArgs: ['--frozen-lockfile']
+
+typescript: {}
+
+# python:
+#   version: '3.11.9'
+#   packageManager: uv
+#   uv:
+#     version: '0.5.29'
+#     syncArgs: ['--all-packages']
+
+# rust:
+#   version: '1.84.1'

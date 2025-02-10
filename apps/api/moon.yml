@@ -1,0 +1,13 @@
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+toolchain:
+  default: 'bun'
+
+tasks:
+  install:
+    command: "bun install"
+  dev:
+    command: "bun run dev"
+    local: true
+  build:
+    command: "bun run build"

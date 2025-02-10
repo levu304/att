@@ -1,0 +1,31 @@
+$schema: 'https://moonrepo.dev/schemas/tasks.json'
+
+fileGroups:
+  configs:
+    - '*.config.{ts,js,cjs,mjs}'
+    - '*.json'
+  sources:
+    - 'src/**/*'
+    - 'types/**/*'
+  tests:
+    - 'tests/**/*'
+    - '**/__tests__/**/*'
+  assets:
+    - 'assets/**/*'
+    - 'images/**/*'
+    - 'static/**/*'
+    - '**/*.{scss,css}'
+
+taskOptions:
+  # Never cache builds
+  cache: false
+  # Always re-run flaky tests
+  retryCount: 2
+
+tasks:
+  dev: {}
+  build:
+    # ...
+    options:
+      # Override the default cache setting
+      cache: false
