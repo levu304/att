@@ -1,7 +1,9 @@
-FROM oven/bun:slim AS base
+FROM node:20.18.1 AS base
+WORKDIR /app
+
 # Install moon binary
-RUN curl -fsSL https://moonrepo.dev/install/moon.sh | bash
-RUN export PATH="$HOME/.moon/bin:$PATH"
+RUN npm install -g @moonrepo/cli
+RUN npm install -g bun
 
 #### SKELETON
 FROM base AS skeleton
@@ -29,9 +31,8 @@ RUN moon docker setup
 
 # Copy source files
 COPY --from=skeleton /app/.moon/docker/sources .
-# Build something (optional)
-RUN moon run api:install
-RUN moon run api:build
+RUN ls -la
+
 # Prune workspace
 RUN moon docker prune
 
