@@ -1,12 +1,19 @@
 services:
   api:
+    platform: linux/amd64
     build:
       context: .
       dockerfile: ./apps/api/Dockerfile
     ports:
       - "3000:3000"
+    networks:
+      - att-network
+
   db:
     image: ghcr.io/tursodatabase/libsql-server:latest
-    ports:
-      - "8080:8080"
-      - "5001:5001"
+    networks:
+      - att-network
+
+networks:
+  att-network:
+    driver: bridge

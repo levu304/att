@@ -3,11 +3,32 @@ $schema: 'https://moonrepo.dev/schemas/project.json'
 toolchain:
   default: 'bun'
 
+fileGroups:
+  configs:
+    - '*.config.{ts,js,cjs,mjs}'
+    - '*.json'
+  sources:
+    - 'src/**/*'
+    - 'types/**/*'
+  tests:
+    - 'tests/**/*'
+    - '**/__tests__/**/*'
+  assets:
+    - 'assets/**/*'
+    - 'images/**/*'
+    - 'static/**/*'
+    - '**/*.{scss,css}'
+
 tasks:
   install:
     command: "bun install"
+    options:
+      cache: false
   dev:
     command: "bun run dev"
     local: true
   build:
     command: "bun run build"
+    options:
+      # Override the default cache setting
+      cache: true
