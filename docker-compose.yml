@@ -9,8 +9,18 @@ services:
     networks:
       - att-network
 
-  db:
+  libsql: # database server
     image: ghcr.io/tursodatabase/libsql-server:latest
+    networks:
+      - att-network
+
+  garnet: # cache server
+    image: ghcr.io/microsoft/garnet:latest
+    networks:
+      - att-network
+
+  fluentd: # logging agent
+    image: fluent/fluentd
     networks:
       - att-network
 
